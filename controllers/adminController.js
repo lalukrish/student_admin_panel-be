@@ -8,10 +8,9 @@ const adminController = {
     try {
       const { email, password } = req.body;
 
-      // Predefined admin credentials
       if (email === "admin@admin.com" && password === "admin") {
         const token = jwt.sign({ role: "admin" }, process.env.SECRET_KEY, {
-          expiresIn: "2h", // Token expiration time
+          expiresIn: "2h",
         });
         return res
           .status(200)
